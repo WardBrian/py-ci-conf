@@ -9,12 +9,7 @@ on:
 jobs:
   build-docs:
     name: Publish documentation to gh-pages
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        python-version: [3.9]
-      fail-fast: false
+    runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -23,10 +18,10 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.9
 
       - name: Install os dependencies
         run: |
