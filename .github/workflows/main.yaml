@@ -39,7 +39,7 @@ jobs:
 
       - name: CmdStan installation cacheing
         if: env.CMDSTAN != "False"
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cmdstan
           key: ${{ runner.os }}-cmdstan-${{ env.CMDSTAN }}
